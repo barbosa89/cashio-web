@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Cash IO es una app offline-first para registrar ingresos, egresos, categorías, tags, saldos, gráficas y reportes desde una base de datos local.">
+  <meta name="theme-color" content="#f97316">
+  <title>Cash IO | Finanzas personales offline</title>
+  <link rel="icon" href="assets/icon.png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="site-header" data-header>
+    <div class="site-header-items">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <img class="brand__icon" src="assets/icon.png" alt="" width="120">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-controls="site-nav"
+        aria-expanded="false" data-nav-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal" data-nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#descarga">Descarga</a>
+        <a href="#caracteristicas">Características</a>
+        <a href="#privacidad">Privacidad</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="inicio">
+      <div class="hero__copy">
+        <p class="eyebrow">Finanzas personales sin depender de la nube</p>
+        <h1>Controla tu dinero desde una app privada, simple y offline.</h1>
+        <p class="hero__lead">
+          Cash IO te ayuda a registrar ingresos y egresos, clasificar movimientos,
+          revisar saldos mensuales, ver gráficas y exportar reportes CSV desde una
+          base de datos local.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#descarga">Descargar para Android</a>
+          <a class="button button--secondary" href="#caracteristicas">Ver características</a>
+        </div>
+      </div>
+
+      <div class="hero__media" aria-label="Vista previa de Cash IO">
+        <img src="assets/hero.webp" alt="Marca visual de Cash IO" width="1024" height="512">
+        <!-- <div class="phone-preview" aria-hidden="true">
+            <div class="phone-preview__top">
+              <span>Junio 2026</span>
+              <strong>$ 1.280.000</strong>
+            </div>
+            <div class="phone-preview__chart">
+              <span style="height: 44%"></span>
+              <span style="height: 72%"></span>
+              <span style="height: 36%"></span>
+              <span style="height: 86%"></span>
+              <span style="height: 58%"></span>
+            </div>
+            <div class="phone-preview__rows">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div> -->
+      </div>
+    </section>
+
+    <section class="download section" id="descarga">
+      <div class="section__heading">
+        <p class="eyebrow">Disponible próximamente</p>
+        <h2>Instala Cash IO desde Play Store.</h2>
+        <p>
+          El enlace oficial se conectará cuando la ficha pública esté lista.
+          Por ahora queda como ancla para integrarlo sin cambiar la estructura.
+        </p>
+      </div>
+
+      <a class="play-card" href="#" aria-label="Ir a Cash IO en Play Store">
+        <span class="play-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" id="Icons" fill="#000" viewBox="0 0 32 32"><g id="SVGRepo_iconCarrier"><path d="m17 14.5 4.2-4.5L4.9 1.2c-.1-.1-.3-.1-.6-.2z" style="fill:#00f076"/><path d="m23 21 5.9-3.2c.7-.4 1.1-1 1.1-1.8s-.4-1.5-1.1-1.8L23 11l-4.7 5z" style="fill:#ffc900"/><path d="M2.4 1.9c-.3.3-.4.7-.4 1.1v26c0 .4.1.8.4 1.2L15.6 16z" style="fill:#00d6ff"/><path d="M17 17.5 4.3 31c.2 0 .4-.1.6-.2L21.2 22z" style="fill:#ff3a44"/></g></svg>
+        </span>
+        <span>
+          <small>Próximamente en</small>
+          <strong>Google Play</strong>
+        </span>
+      </a>
+    </section>
+
+    <section class="features section" id="caracteristicas">
+      <div class="section__heading">
+        <p class="eyebrow">Lo esencial para tu mes</p>
+        <h2>Herramientas claras para registrar, entender y exportar tus movimientos.</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">+</span>
+          <h3>Ingresos y egresos</h3>
+          <p>Registra montos, fechas, descripciones y tipo de movimiento con una interfaz rápida.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">#</span>
+          <h3>Categorías y tags</h3>
+          <p>Clasifica cada registro con una categoría y varios tags para encontrar patrones.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">⌕</span>
+          <h3>Filtros mensuales</h3>
+          <p>Busca por descripción y filtra por categoría o tag dentro del mes visible.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">↗</span>
+          <h3>Gráficas de gastos</h3>
+          <p>Revisa saldos diarios y egresos por categoría para entender cómo se mueve tu dinero.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">CSV</span>
+          <h3>Reportes exportables</h3>
+          <p>Genera archivos CSV por rango mensual para análisis, respaldo o conciliación.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true">⤓</span>
+          <h3>Saldo acumulado y respaldo</h3>
+          <p>Activa saldos históricos y copias opcionales en Google Drive o iCloud en builds nativas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="privacy section" id="privacidad">
+      <div class="privacy__panel">
+        <div class="section__heading">
+          <p class="eyebrow">Política de privacidad</p>
+          <h2>Tus datos financieros se quedan en tu dispositivo.</h2>
+        </div>
+        <div class="privacy__copy">
+          <p><strong>Vigente desde el 25 de junio de 2026.</strong></p>
+          <p>
+            Cash IO es desarrollada por Omar Barbosa. Para consultas sobre esta
+            política puedes usar el sitio
+            <a href="https://omarbarbosa.com" rel="noopener noreferrer">omarbarbosa.com</a>.
+          </p>
+          <div>
+            <h3>Datos que maneja la app</h3>
+            <p>
+              Cash IO guarda localmente la información que registras dentro de la app,
+              incluyendo movimientos, montos, fechas, descripciones, categorías, tags,
+              saldos mensuales y preferencias. Estos datos pueden incluir información
+              financiera, pero se almacenan en una base de datos SQLite local en tu
+              dispositivo.
+            </p>
+          </div>
+          <div>
+            <h3>Recolección, uso y terceros</h3>
+            <p>
+              Cash IO no vende datos personales, no opera un servidor propio para
+              recibir tus datos financieros y no usa tus registros para publicidad o
+              analítica. La app usa los datos que ingresas sólo para mostrar saldos,
+              filtros, gráficas, reportes y las funciones propias de administración
+              financiera.
+            </p>
+          </div>
+          <div>
+            <h3>Copias de seguridad opcionales</h3>
+            <p>
+              Si activas la copia de seguridad, Cash IO puede guardar una copia de la
+              base de datos en Google Drive en Android o iCloud en iOS. Esta función es
+              opcional, depende de la cuenta del usuario y se usa únicamente para
+              respaldar o restaurar la información.
+            </p>
+          </div>
+          <div>
+            <h3>Retención y eliminación</h3>
+            <p>
+              Los datos permanecen en tu dispositivo hasta que los elimines desde la
+              app, borres los datos de la aplicación o desinstales Cash IO. Las copias
+              creadas en Google Drive o iCloud permanecen bajo la cuenta del usuario y
+              pueden administrarse desde esos servicios.
+            </p>
+          </div>
+          <div>
+            <h3>Seguridad</h3>
+            <p>
+              La base de datos se almacena localmente en el espacio de la app. Cuando
+              se usa una copia de seguridad opcional, la transferencia y el
+              almacenamiento dependen de los mecanismos de seguridad de Google Drive o
+              iCloud.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Cash IO. Finanzas personales locales y simples.</p>
+    <p>
+      <a href="https://omarbarbosa.com" rel="noopener noreferrer">omarbarbosa.com</a>
+    </p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>
