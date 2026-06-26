@@ -529,6 +529,54 @@ h3 {
   text-underline-offset: 0.18em;
 }
 
+.terms {
+  border-top: 1px solid var(--line);
+  max-width: none;
+}
+
+.terms__panel {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: clamp(1.25rem, 5vw, 3rem);
+}
+
+.terms__copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.terms__copy div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.terms__copy h3 {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.terms__copy p {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.terms__copy strong {
+  color: var(--black);
+}
+
+.terms__copy a {
+  color: var(--black);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: var(--orange);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   display: flex;
@@ -595,7 +643,8 @@ h3 {
 
   .hero,
   .download,
-  .privacy__panel {
+  .privacy__panel,
+  .terms__panel {
     grid-template-columns: 1fr;
   }
 
