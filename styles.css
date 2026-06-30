@@ -62,6 +62,7 @@ button:focus-visible {
   right: 0;
   top: 0;
   z-index: 20;
+  padding-top: 12px;
 }
 
 .site-header-items {
@@ -75,13 +76,22 @@ button:focus-visible {
 
 .brand {
   align-items: center;
-  display: inline-flex;
+  display: flex;
   gap: 0.75rem;
   min-width: 0;
 }
 
 .brand__icon {
   flex: 0 0 auto;
+}
+
+.site_name {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.site_name .brand__io {
+  font-weight: 900;
 }
 
 .brand__wordmark {
