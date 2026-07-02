@@ -16,7 +16,6 @@ Sitio web estático para presentar Cash IO, una app de finanzas personales offli
 ```text
 .
 ├── assets/
-│   ├── cashio.webp
 │   ├── hero.webp
 │   └── icon.png
 ├── index.html
