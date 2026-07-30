@@ -1,7 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import icon from '../assets/icon.png';
-import type { LandingContent, Locale } from '../i18n/content';
+import { githubRepositoryLink, type LandingContent, type Locale } from '../i18n/content';
+import GitHubIcon from './GitHubIcon.astro';
 import LanguageSelector from './LanguageSelector.astro';
 
 interface Props {
@@ -81,6 +82,15 @@ const navItems = [
           </a>
         ))
       }
+      <a
+        class="inline-flex size-11 shrink-0 items-center justify-center justify-self-start rounded-full text-muted transition-[background-color,color,transform] duration-200 ease-cash-out hover:-translate-y-px hover:bg-paper-2 hover:text-ink active:translate-y-px nav:size-10"
+        href={githubRepositoryLink.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={content.accessibility.githubRepository}
+      >
+        <GitHubIcon class="size-5" />
+      </a>
       <LanguageSelector
         locale={locale}
         label={content.accessibility.languageSelector}

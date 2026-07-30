@@ -48,6 +48,7 @@ export interface LandingContent {
     heroImage: string;
     playStore: string;
     footerNavigation: string;
+    githubRepository: string;
   };
   nav: {
     home: string;
@@ -90,6 +91,11 @@ const websiteLink = {
   href: 'https://omarbarbosa.com',
 } as const;
 
+export const githubRepositoryLink = {
+  label: 'GitHub',
+  href: 'https://github.com/barbosa89/cashio',
+} as const;
+
 export const content = {
   es: {
     meta: {
@@ -108,6 +114,7 @@ export const content = {
         'Cinco vistas de Cash IO con movimientos, balances, presupuestos y reportes',
       playStore: 'Ir a Cash IO en Play Store',
       footerNavigation: 'Enlaces del pie de página',
+      githubRepository: 'Ver repositorio de Cash IO en GitHub',
     },
     nav: {
       home: 'Inicio',
@@ -324,6 +331,7 @@ export const content = {
         'Five Cash IO screens showing transactions, balances, budgets, and reports',
       playStore: 'Open Cash IO on the Play Store',
       footerNavigation: 'Footer links',
+      githubRepository: 'View Cash IO repository on GitHub',
     },
     nav: {
       home: 'Home',
@@ -535,6 +543,7 @@ export const content = {
         'Cinco ecrãs do Cash IO com movimentos, saldos, orçamentos e relatórios',
       playStore: 'Abrir Cash IO na Play Store',
       footerNavigation: 'Links do rodapé',
+      githubRepository: 'Ver repositório do Cash IO no GitHub',
     },
     nav: {
       home: 'Início',

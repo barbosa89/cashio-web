@@ -1,5 +1,6 @@
 ---
-import type { LandingContent } from '../i18n/content';
+import { githubRepositoryLink, type LandingContent } from '../i18n/content';
+import GitHubIcon from './GitHubIcon.astro';
 
 interface Props {
   content: Pick<LandingContent, 'accessibility' | 'footer' | 'nav'>;
@@ -21,27 +22,37 @@ const { content } = Astro.props;
   >
     <p>{content.footer.description}</p>
     <nav
-      class="flex flex-wrap gap-x-6 gap-y-2 content:justify-end"
+      class="flex flex-wrap items-center gap-x-6 gap-y-2 content:justify-end"
       aria-label={content.accessibility.footerNavigation}
     >
       <a
-        class="min-h-11 font-bold text-paper-on-dark underline decoration-2 decoration-accent underline-offset-4 hover:decoration-[3px]"
+        class="inline-flex min-h-11 items-center font-bold text-paper-on-dark underline decoration-2 decoration-accent underline-offset-4 hover:decoration-[3px]"
         href="#privacy"
       >
         {content.nav.privacy}
       </a>
       <a
-        class="min-h-11 font-bold text-paper-on-dark underline decoration-2 decoration-accent underline-offset-4 hover:decoration-[3px]"
+        class="inline-flex min-h-11 items-center font-bold text-paper-on-dark underline decoration-2 decoration-accent underline-offset-4 hover:decoration-[3px]"
         href="#terms"
       >
         {content.nav.terms}
       </a>
       <a
-        class="min-h-11 font-bold text-paper-on-dark underline decoration-2 decoration-accent underline-offset-4 hover:decoration-[3px]"
+        class="inline-flex min-h-11 items-center font-bold text-paper-on-dark underline decoration-2 decoration-accent underline-offset-4 hover:decoration-[3px]"
         href="https://omarbarbosa.com"
         rel="noopener noreferrer"
       >
         omarbarbosa.com
+      </a>
+      <a
+        class="inline-flex min-h-11 items-center gap-2 font-bold text-paper-on-dark underline decoration-2 decoration-accent underline-offset-4 hover:decoration-[3px]"
+        href={githubRepositoryLink.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={content.accessibility.githubRepository}
+      >
+        <GitHubIcon class="size-4 shrink-0" />
+        <span>{githubRepositoryLink.label}</span>
       </a>
     </nav>
   </div>
