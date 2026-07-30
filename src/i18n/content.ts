@@ -304,7 +304,7 @@ export const content = {
     },
     footer: {
       statement: 'El control de tu dinero no necesita una nube.',
-      description: 'Cash IO · Finanzas personales locales y simples.',
+      description: 'Cash IO · Finanzas personales privadas y simples.',
     },
   },
   en: {
