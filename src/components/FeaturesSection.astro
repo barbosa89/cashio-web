@@ -24,7 +24,7 @@ const { features } = Astro.props;
       features.items.map((item) => (
         <article class="relative grid gap-4 border-t border-rule py-10 content:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] content:items-start">
           <span
-            class="absolute inset-s-0 top-px h-0.5 w-6 bg-accent"
+            class="absolute inset-s-0 -top-px h-0.5 w-6 bg-accent"
             aria-hidden="true"
           />
           <h3 class="text-xl leading-[1.08]">{item.title}</h3>
