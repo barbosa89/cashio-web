@@ -23,15 +23,17 @@ const { content } = Astro.props;
     >
       {content.hero.lead}
     </p>
-    <div class="flex flex-col items-start gap-3 content:flex-row content:flex-wrap">
+    <div
+      class="flex flex-col items-start gap-3 content:flex-row content:flex-wrap wide:gap-2"
+    >
       <a
-        class="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-full border border-ink bg-ink px-6 font-bold text-paper transition-[background-color,transform] duration-200 ease-cash-out hover:-translate-y-px hover:bg-ink-2 active:translate-y-px"
+        class="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-full border border-ink bg-ink px-6 font-bold text-paper transition-[background-color,transform] duration-200 ease-cash-out hover:-translate-y-px hover:bg-ink-2 active:translate-y-px wide:px-5"
         href="#download"
       >
         {content.hero.primaryAction}
       </a>
       <a
-        class="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-full border border-rule-strong bg-paper px-6 font-bold text-ink transition-[background-color,transform] duration-200 ease-cash-out hover:-translate-y-px hover:bg-paper-2 active:translate-y-px"
+        class="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-full border border-rule-strong bg-paper px-6 font-bold text-ink transition-[background-color,transform] duration-200 ease-cash-out hover:-translate-y-px hover:bg-paper-2 active:translate-y-px wide:px-5"
         href="#app-features"
       >
         {content.hero.secondaryAction}
