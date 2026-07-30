@@ -1,0 +1,36 @@
+---
+import type { LandingContent } from '../i18n/content';
+
+interface Props {
+  features: LandingContent['features'];
+}
+
+const { features } = Astro.props;
+---
+
+<section
+  class="mx-auto grid max-w-296 gap-16 px-4 py-36 content:px-10 wide:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] wide:items-start wide:gap-24"
+  id="app-features"
+>
+  <div class="grid min-w-0 gap-4 wide:sticky wide:top-32">
+    <h2 class="text-[clamp(2.441rem,5vw,3.052rem)] leading-[1.02] text-balance">
+      {features.title}
+    </h2>
+    <p class="text-muted">{features.description}</p>
+  </div>
+
+  <div class="border-b border-rule">
+    {
+      features.items.map((item) => (
+        <article class="relative grid gap-4 border-t border-rule py-10 content:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] content:items-start">
+          <span
+            class="absolute inset-s-0 top-px h-0.5 w-6 bg-accent"
+            aria-hidden="true"
+          />
+          <h3 class="text-xl leading-[1.08]">{item.title}</h3>
+          <p class="text-muted">{item.description}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

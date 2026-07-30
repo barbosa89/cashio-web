@@ -1,0 +1,37 @@
+---
+import type { LandingContent, Locale } from '../i18n/content';
+import DownloadSection from './DownloadSection.astro';
+import FeaturesSection from './FeaturesSection.astro';
+import HeroSection from './HeroSection.astro';
+import LegalSection from './LegalSection.astro';
+import SiteFooter from './SiteFooter.astro';
+import SiteHeader from './SiteHeader.astro';
+import Layout from '../layouts/Layout.astro';
+
+interface Props {
+  locale: Locale;
+  content: LandingContent;
+}
+
+const { locale, content } = Astro.props;
+---
+
+<Layout locale={locale} meta={content.meta}>
+  <SiteHeader locale={locale} content={content} />
+  <main id="content">
+    <HeroSection content={content} />
+    <DownloadSection content={content} />
+    <FeaturesSection features={content.features} />
+    <LegalSection id="privacy" content={content.privacy} tone="dark" />
+    <LegalSection id="terms" content={content.terms} tone="light" />
+  </main>
+  <SiteFooter content={content} />
+
+  <script is:inline define:vars={{ locale }}>
+    try {
+      window.localStorage.setItem('cashio:locale', locale);
+    } catch {
+      // The localized URL remains authoritative when storage is unavailable.
+    }
+  </script>
+</Layout>

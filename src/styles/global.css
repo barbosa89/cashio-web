@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: oklch(98.5% 0.006 65);
+  --color-paper-2: oklch(95.5% 0.012 65);
+  --color-paper-3: oklch(92.5% 0.015 65);
+  --color-nav-surface: oklch(98.5% 0.006 65 / 0.9);
+  --color-ink: oklch(18% 0.018 55);
+  --color-ink-2: oklch(31% 0.016 55);
+  --color-muted: oklch(43% 0.014 55);
+  --color-rule: oklch(83% 0.014 60);
+  --color-rule-strong: oklch(58% 0.018 58);
+  --color-accent: oklch(70.5% 0.213 47.6);
+  --color-accent-soft: oklch(94% 0.048 58);
+  --color-accent-strong: oklch(55% 0.18 42);
+  --color-focus: oklch(35% 0.12 42);
+  --color-paper-on-dark: oklch(96% 0.008 65);
+  --color-muted-on-dark: oklch(78% 0.012 65);
+  --color-shadow: oklch(18% 0.018 55 / 0.12);
+
+  --font-display: "Bricolage Grotesque", "Arial Narrow", sans-serif;
+  --font-body: "Geist", "Avenir Next", sans-serif;
+  --font-wordmark: "Bricolage Grotesque", "Arial Narrow", sans-serif;
+
+  --text-display-small: clamp(2.55rem, 7vw, 4.35rem);
+  --text-display-large: clamp(2.75rem, 6vw, 5.25rem);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+
+  --shadow-nav: 0 0.75rem 2.5rem -1.25rem var(--color-shadow);
+
+  --ease-cash-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-cash-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --breakpoint-content: 40rem;
+  --breakpoint-nav: 52rem;
+  --breakpoint-wide: 60rem;
+  --breakpoint-canvas: 90rem;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-block-start: 6.5rem;
+  }
+
+  body {
+    min-inline-size: 20rem;
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  ::selection {
+    background: var(--color-accent-soft);
+    color: var(--color-ink);
+  }
+
+  img,
+  svg {
+    display: block;
+    max-inline-size: 100%;
+  }
+
+  img {
+    block-size: auto;
+  }
+
+  a,
+  button,
+  select {
+    -webkit-tap-highlight-color: var(--color-accent-soft);
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 0.25rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+    font-family: var(--font-display);
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+  }
+
+  p {
+    max-inline-size: 65ch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 120ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 120ms !important;
+  }
+}

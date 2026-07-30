@@ -1,52 +1,58 @@
 # Cash IO Web
 
-Sitio web estático para presentar Cash IO, una app de finanzas personales offline-first enfocada en registrar ingresos, egresos, categorías, tags, saldos, gráficas y reportes desde una base de datos local.
+Landing page estática de Cash IO construida con Astro 7 y Tailwind CSS 4.
 
-## Características
+## Aplicación Cash IO
 
-- Landing page responsive en español.
-- Sección de descarga para Google Play.
-- Resumen de funcionalidades principales de Cash IO.
-- Política de privacidad integrada en la misma página.
-- Navegación móvil con JavaScript vanilla.
-- Assets locales para icono, hero e imagen de marca.
+Cash IO es una aplicación de finanzas personales offline-first para registrar
+ingresos y egresos, administrar cuentas y presupuestos, consultar saldos y
+gráficas, y exportar reportes desde una base de datos local.
 
-## Estructura del proyecto
+La aplicación está disponible para Android en
+[Google Play](https://play.google.com/store/apps/details?id=com.omarbarbosa.cashio).
 
-```text
-.
-├── assets/
-│   ├── hero.webp
-│   └── icon.png
-├── index.html
-├── scripts.js
-├── styles.css
-└── README.md
+## Idiomas
+
+El sitio genera tres versiones localizadas:
+
+- `/es/`: español.
+- `/en/`: inglés.
+- `/pt/`: portugués neutro.
+
+La ruta `/` elige el idioma usando `localStorage`, después las preferencias del
+navegador y, como último recurso, español. El selector guarda la preferencia en
+la clave `cashio:locale`.
+
+## Desarrollo
+
+Requiere Node.js 24 LTS. Con `nvm`:
+
+```sh
+nvm use
+npm install
 ```
 
-## Archivos principales
+Comandos principales:
 
-- `index.html`: contenido de la landing, metadatos, secciones y política de privacidad.
-- `styles.css`: estilos responsive, layout, navegación, botones y tarjetas.
-- `scripts.js`: control de apertura/cierre del menú móvil.
-- `assets/`: imágenes usadas por el sitio.
+```sh
+npm run dev
+npm run check
+npm run build
+npm run validate
+npm run preview
+```
 
-## Despliegue
+Cuando sea necesario iniciar el servidor de desarrollo en este repositorio,
+debe ejecutarse en segundo plano:
 
-Al ser un sitio estático, puede publicarse en cualquier hosting que sirva archivos HTML, CSS, JavaScript e imágenes, por ejemplo:
+```sh
+npx astro dev --background
+```
 
-- GitHub Pages
-- Netlify
-- Vercel
-- Cloudflare Pages
-- Un servidor web tradicional
+## Estructura
 
-## Privacidad
-
-La política de privacidad visible en el sitio indica que Cash IO guarda los datos financieros localmente en el dispositivo del usuario y que las copias de seguridad en Google Drive o iCloud son opcionales.
-
-## Autor
-
-Desarrollado por Omar Barbosa.
-
-Sitio: [omarbarbosa.com](https://omarbarbosa.com)
+- `src/i18n/content.ts`: contratos y contenido de los tres idiomas.
+- `src/pages/`: entrada de detección y páginas localizadas.
+- `src/components/`: landing y componentes reutilizables.
+- `src/styles/global.css`: tema de Tailwind y estilos globales.
+- `backup/`: referencia intacta del sitio anterior.

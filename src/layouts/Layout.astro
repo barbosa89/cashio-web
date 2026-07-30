@@ -1,0 +1,58 @@
+---
+import icon from "../assets/icon.png";
+import {
+    languageLabels,
+    locales,
+    type LandingContent,
+    type Locale,
+} from "../i18n/content";
+import "../styles/global.css";
+
+interface Props {
+    locale: Locale;
+    meta: LandingContent["meta"];
+}
+
+const { locale, meta } = Astro.props;
+const canonicalPath = `/${locale}/`;
+---
+
+<!doctype html>
+<html lang={locale}>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+        <meta name="description" content={meta.description} />
+        <meta name="theme-color" content="#f97316" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{meta.title}</title>
+
+        <link rel="icon" href={icon.src} />
+        <link rel="apple-touch-icon" href={icon.src} />
+        <link rel="canonical" href={canonicalPath} />
+        {
+            locales.map((alternateLocale) => (
+                <link
+                    rel="alternate"
+                    hreflang={alternateLocale}
+                    href={`/${alternateLocale}/`}
+                    title={languageLabels[alternateLocale]}
+                />
+            ))
+        }
+        <link rel="alternate" hreflang="x-default" href="/" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Geist:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>

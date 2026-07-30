@@ -1,0 +1,48 @@
+---
+import type { LandingContent } from '../i18n/content';
+
+interface Props {
+  content: Pick<LandingContent, 'accessibility' | 'footer' | 'nav'>;
+}
+
+const { content } = Astro.props;
+---
+
+<footer
+  class="grid gap-16 bg-ink px-4 pt-24 pb-[max(2.5rem,env(safe-area-inset-bottom))] text-paper-on-dark content:px-10"
+>
+  <p
+    class="mx-auto w-full max-w-[min(20ch,74rem)] font-display text-[clamp(1.953rem,6vw,3.052rem)] font-bold leading-none tracking-[-0.04em] text-balance"
+  >
+    {content.footer.statement}
+  </p>
+  <div
+    class="mx-auto grid w-full max-w-296 gap-4 border-t border-rule-strong pt-6 text-muted-on-dark content:grid-cols-[minmax(0,1fr)_auto] content:items-baseline"
+  >
+    <p>{content.footer.description}</p>
+    <nav
+      class="flex flex-wrap gap-x-6 gap-y-2 content:justify-end"
+      aria-label={content.accessibility.footerNavigation}
+    >
+      <a
+        class="min-h-11 font-bold text-paper-on-dark underline decoration-2 decoration-accent underline-offset-4 hover:decoration-[3px]"
+        href="#privacy"
+      >
+        {content.nav.privacy}
+      </a>
+      <a
+        class="min-h-11 font-bold text-paper-on-dark underline decoration-2 decoration-accent underline-offset-4 hover:decoration-[3px]"
+        href="#terms"
+      >
+        {content.nav.terms}
+      </a>
+      <a
+        class="min-h-11 font-bold text-paper-on-dark underline decoration-2 decoration-accent underline-offset-4 hover:decoration-[3px]"
+        href="https://omarbarbosa.com"
+        rel="noopener noreferrer"
+      >
+        omarbarbosa.com
+      </a>
+    </nav>
+  </div>
+</footer>

@@ -1,0 +1,55 @@
+---
+import type { LegalContent } from '../i18n/content';
+import RichText from './RichText.astro';
+
+interface Props {
+  id: 'privacy' | 'terms';
+  content: LegalContent;
+  tone: 'dark' | 'light';
+}
+
+const { id, content, tone } = Astro.props;
+const isDark = tone === 'dark';
+
+const copyClasses = isDark ? 'text-muted-on-dark' : 'text-muted';
+const strongClasses = isDark ? 'text-paper-on-dark' : 'text-ink';
+const sectionClasses = isDark
+  ? 'bg-ink text-paper-on-dark py-36'
+  : 'bg-paper-2 text-ink pt-24 pb-36';
+---
+
+<section class={sectionClasses} id={id}>
+  <div
+    class="mx-auto grid max-w-296 gap-16 px-4 content:px-10 wide:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] wide:items-start wide:gap-24"
+  >
+    <div class="grid min-w-0 gap-4 wide:sticky wide:top-32">
+      <h2 class="text-[clamp(2.441rem,5vw,3.052rem)] leading-[1.02] text-balance">
+        {content.heading}
+      </h2>
+      <p class={copyClasses}>{content.label}</p>
+    </div>
+
+    <div class:list={['grid min-w-0', copyClasses]}>
+      <p class="pb-6">
+        <strong class={strongClasses}>{content.effective}</strong>
+      </p>
+      {
+        content.introduction && (
+          <p class="pb-6"><RichText parts={content.introduction} /></p>
+        )
+      }
+      {
+        content.sections.map((section) => (
+          <div class="grid gap-2 border-t border-rule-strong py-6">
+            <h3 class:list={['font-body text-base leading-normal font-bold tracking-[-0.015em]', strongClasses]}>
+              {section.title}
+            </h3>
+            {section.paragraphs.map((paragraph) => (
+              <p><RichText parts={paragraph} /></p>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

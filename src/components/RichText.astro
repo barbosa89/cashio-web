@@ -1,0 +1,25 @@
+---
+import type { RichText } from '../i18n/content';
+
+interface Props {
+  parts: RichText;
+}
+
+const { parts } = Astro.props;
+---
+
+{
+  parts.map((part) =>
+    typeof part === 'string' ? (
+      part
+    ) : (
+      <a
+        class="font-bold whitespace-nowrap underline decoration-2 decoration-accent underline-offset-4 hover:decoration-[3px]"
+        href={part.href}
+        rel="noopener noreferrer"
+      >
+        {part.label}
+      </a>
+    ),
+  )
+}
