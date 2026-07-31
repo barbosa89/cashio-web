@@ -1,0 +1,180 @@
+---
+import { Image } from 'astro:assets';
+import icon from '../assets/icon.png';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#f97316" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Cash IO</title>
+
+    <link rel="icon" href={icon.src} />
+    <link rel="apple-touch-icon" href={icon.src} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Geist:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="not-found" aria-labelledby="not-found-title">
+      <div class="not-found__mark" aria-hidden="true">
+        <Image src={icon} alt="" width={112} height={112} loading="eager" />
+      </div>
+
+      <h1 class="not-found__wordmark" id="not-found-title">
+        Cash <span>IO</span>
+      </h1>
+
+      <a class="not-found__home" href="/es/" aria-label="Cash IO home" data-home-link>
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="22"
+          viewBox="0 0 24 24"
+          width="22"
+        >
+          <path
+            d="M3.75 11.4 12 4.5l8.25 6.9v8.1a1 1 0 0 1-1 1h-4.5v-5.25h-5.5v5.25h-4.5a1 1 0 0 1-1-1v-8.1Z"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.8"
+          />
+        </svg>
+      </a>
+    </main>
+
+    <style>
+      /* Hallmark · genre: modern-minimal · macrostructure: Index-First · theme: custom · enrichment: none · tone: austere · anchor hue: warm */
+      .not-found {
+        display: grid;
+        min-block-size: 100dvh;
+        place-items: center;
+        align-content: center;
+        justify-items: center;
+        gap: clamp(1rem, 4vw, 1.5rem);
+        padding-block: max(4rem, env(safe-area-inset-top))
+          max(4rem, env(safe-area-inset-bottom));
+        padding-inline: max(1.25rem, env(safe-area-inset-left))
+          max(1.25rem, env(safe-area-inset-right));
+        background: var(--color-paper);
+        color: var(--color-ink);
+        text-align: center;
+      }
+
+      .not-found__mark {
+        inline-size: clamp(6rem, 24vw, 7rem);
+        block-size: clamp(6rem, 24vw, 7rem);
+      }
+
+      .not-found__mark :global(img) {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: contain;
+      }
+
+      .not-found__wordmark {
+        margin: 0;
+        font-family: var(--font-wordmark);
+        font-size: clamp(2.5rem, 14vw, 4.5rem);
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 0.92;
+      }
+
+      .not-found__wordmark span {
+        color: var(--color-accent-strong);
+      }
+
+      .not-found__home {
+        display: inline-grid;
+        inline-size: 3.25rem;
+        block-size: 3.25rem;
+        place-items: center;
+        border: 1px solid var(--color-ink);
+        border-radius: 999rem;
+        background: var(--color-ink);
+        color: var(--color-paper);
+        text-decoration: none;
+        transition:
+          background-color 200ms var(--ease-cash-out),
+          color 200ms var(--ease-cash-out),
+          transform 120ms var(--ease-cash-out);
+      }
+
+      .not-found__home:hover {
+        background: var(--color-ink-2);
+        transform: translateY(-1px);
+      }
+
+      .not-found__home:active {
+        transform: translateY(1px);
+      }
+
+      .not-found__home svg {
+        inline-size: 1.375rem;
+        block-size: 1.375rem;
+      }
+    </style>
+
+    <script is:inline>
+      (() => {
+        const supportedLocales = ["es", "en", "pt"];
+
+        const normalizeLocale = (value) => {
+          if (typeof value !== "string") {
+            return null;
+          }
+
+          const primaryLocale = value.trim().toLowerCase().split("-")[0];
+          return supportedLocales.includes(primaryLocale)
+            ? primaryLocale
+            : null;
+        };
+
+        const pathLocale = normalizeLocale(
+          window.location.pathname.split("/").filter(Boolean)[0],
+        );
+
+        let selectedLocale = pathLocale;
+
+        if (!selectedLocale) {
+          try {
+            selectedLocale = normalizeLocale(
+              window.localStorage.getItem("cashio:locale"),
+            );
+          } catch {
+            // The fallback link remains valid when storage is unavailable.
+          }
+        }
+
+        if (!selectedLocale) {
+          const browserLocales =
+            navigator.languages?.length > 0
+              ? navigator.languages
+              : [navigator.language];
+
+          selectedLocale =
+            browserLocales.map(normalizeLocale).find(Boolean) ?? "es";
+        }
+
+        document
+          .querySelector("[data-home-link]")
+          ?.setAttribute("href", `/${selectedLocale}/`);
+      })();
+    </script>
+  </body>
+</html>
